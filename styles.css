@@ -1,0 +1,234 @@
+:root {
+  color-scheme: light;
+  --ink: #59464b;
+  --muted: #967e83;
+  --rose: #b77c88;
+  --rose-dark: #98616e;
+  --paper: #fffdfc;
+  --line: #eadbdd;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse at 15% 12%, rgba(255, 255, 255, 0.88), transparent 34%),
+    radial-gradient(ellipse at 87% 90%, rgba(237, 211, 215, 0.52), transparent 35%),
+    #fbf4f3;
+  font-family: "DM Sans", sans-serif;
+}
+
+button {
+  font: inherit;
+}
+
+.page {
+  position: relative;
+  display: grid;
+  min-height: 100vh;
+  overflow: hidden;
+  place-items: center;
+  padding: 48px 20px;
+}
+
+.gift-card {
+  position: relative;
+  width: min(100%, 560px);
+  padding: clamp(42px, 8vw, 72px) clamp(28px, 8vw, 72px) 36px;
+  border: 1px solid rgba(234, 219, 221, 0.9);
+  border-radius: 3px;
+  background: rgba(255, 253, 252, 0.91);
+  box-shadow: 0 24px 80px rgba(111, 73, 82, 0.09);
+  text-align: center;
+  animation: arrive 800ms ease both;
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--rose);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+}
+
+.heart {
+  margin: 28px 0 15px;
+  color: var(--rose);
+  font-family: "Playfair Display", serif;
+  font-size: 2rem;
+  line-height: 1;
+}
+
+h1 {
+  margin: 0;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(2.7rem, 9vw, 4rem);
+  font-weight: 400;
+  letter-spacing: -0.045em;
+  line-height: 1.05;
+}
+
+h1 em {
+  color: var(--rose-dark);
+  font-weight: 400;
+}
+
+.intro {
+  max-width: 300px;
+  margin: 20px auto 28px;
+  color: var(--muted);
+  font-size: 0.93rem;
+  line-height: 1.7;
+}
+
+.reveal-button {
+  display: inline-flex;
+  min-height: 50px;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 0 22px;
+  border: 1px solid var(--rose);
+  border-radius: 2px;
+  color: #fffdfc;
+  background: var(--rose);
+  cursor: pointer;
+  font-size: 0.82rem;
+  letter-spacing: 0.025em;
+  transition: background 180ms ease, transform 180ms ease;
+}
+
+.reveal-button:hover {
+  transform: translateY(-2px);
+  background: var(--rose-dark);
+}
+
+.reveal-button:focus-visible {
+  outline: 3px solid rgba(183, 124, 136, 0.35);
+  outline-offset: 4px;
+}
+
+.button-arrow {
+  font-size: 1rem;
+  transition: transform 180ms ease;
+}
+
+.reveal-button:hover .button-arrow {
+  transform: translate(2px, -2px);
+}
+
+.letter {
+  margin-top: 37px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  color: #705d62;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.04rem;
+  line-height: 1.9;
+  text-align: left;
+  animation: arrive 500ms ease both;
+}
+
+.letter-rule {
+  margin: -36px 0 19px;
+  color: var(--rose);
+  text-align: center;
+}
+
+.letter-rule span {
+  padding: 0 12px;
+  background: var(--paper);
+}
+
+.letter-greeting {
+  color: var(--rose-dark);
+  font-style: italic;
+}
+
+.letter-signoff {
+  margin-top: 24px;
+  color: var(--rose-dark);
+  font-style: italic;
+  text-align: right;
+}
+
+.letter-signoff span {
+  padding-left: 4px;
+}
+
+.footer-note {
+  margin: 42px 0 0;
+  color: #b09ca0;
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+}
+
+.ornament {
+  position: absolute;
+  color: rgba(183, 124, 136, 0.23);
+  font-size: clamp(7rem, 17vw, 13rem);
+  line-height: 1;
+  pointer-events: none;
+}
+
+.ornament-left {
+  top: 4%;
+  left: 3%;
+  transform: rotate(-18deg);
+}
+
+.ornament-right {
+  right: 3%;
+  bottom: 3%;
+  transform: rotate(18deg);
+}
+
+@keyframes arrive {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 520px) {
+  .page {
+    padding: 28px 16px;
+  }
+
+  .gift-card {
+    padding-top: 48px;
+    padding-bottom: 30px;
+  }
+
+  .ornament-left {
+    top: 1%;
+    left: -9%;
+  }
+
+  .ornament-right {
+    right: -9%;
+    bottom: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
